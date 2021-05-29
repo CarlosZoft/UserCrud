@@ -4,7 +4,7 @@ const { findAll, findOne, create, update, deleteAll, deleteOne } = require('../.
 router.get('/', findAll);
 router.get('/:user_id', findOne);
 router.post('/', create);
-router.put('/', update);
+router.put('/:user_id', update);
 router.delete('/:user_id', deleteOne);
 router.delete('/', deleteAll);
 
