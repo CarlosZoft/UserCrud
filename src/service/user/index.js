@@ -6,8 +6,10 @@ exports.read = () => {
   return JSON.parse(file);
 }
 
-exports.findAll = () => {
+exports.findAll = (req, res) => {
+  const file = this.readFile();
 
+  res.status(200).send(file);
 }
 exports.findOne = () => {
 
