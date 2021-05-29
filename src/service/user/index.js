@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = "./src/database/user.json"
-const { readFile, writeFile } = require('../../shared/readFile')
+const { readFile, writeFile } = require('../../shared/fileMethods')
 
 
 
