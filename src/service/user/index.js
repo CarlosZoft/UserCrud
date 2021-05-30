@@ -100,7 +100,7 @@ exports.deleteOne = (req, res) => {
       res.status(500).send(errorMessage(3, 'deletar'));
     }
     else {
-      res.status(200).send(deletedUser);
+      res.status(200).send(deletedUser[0]);
     }
   }
   else {
