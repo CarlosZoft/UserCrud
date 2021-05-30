@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon start ./src/app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon ./src/app.js --ignore __tests__",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,9 @@
     "fs": "^0.0.1-security"
   },
   "devDependencies": {
+    "jest": "^27.0.3",
     "lint": "^0.7.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   }
 }
