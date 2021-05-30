@@ -19,9 +19,11 @@
   "homepage": "https://github.com/CarlosZoft/UserCrud#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-validator": "^6.11.1",
     "fs": "^0.0.1-security"
   },
   "devDependencies": {
+    "lint": "^0.7.0",
     "nodemon": "^2.0.7"
   }
 }
