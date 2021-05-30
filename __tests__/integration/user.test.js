@@ -100,7 +100,7 @@ describe('Testes de Usuario', () => {
         });
     });
   })
-  describe('Testando GET', () => {
+  describe('Testando PUT', () => {
     it('Atualizando usuário - 1', () => {
       req.put('/api/v1/users/1')
         .send(
@@ -198,6 +198,28 @@ describe('Testes de Usuario', () => {
             })
           })
     });
+    it('Criando usuário sem senha', () => {
+      req.post('/api/v1/users')
+        .send(
+          {
+            "email": "carlosk2@gmail.com"
+          }).expect(201).end((err, res) => {
+            expect(res.body).toStrictEqual({
+              "errors": [
+                {
+                  "msg": "senha não informada",
+                  "param": "senha",
+                  "location": "body"
+                },
+                {
+                  "msg": "O campo senha deve conter pelo menos 5 caracteres",
+                  "param": "senha",
+                  "location": "body"
+                }
+              ]
+            })
+          })
+    });
     it('Atualizando usuário sem dados', () => {
       req.put('/api/v1/users/1')
         .send(
@@ -234,6 +256,7 @@ describe('Testes de Usuario', () => {
             })
           })
     });
+
   })
 
 
