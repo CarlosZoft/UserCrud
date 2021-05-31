@@ -101,7 +101,7 @@ describe('Testes de Usuario', () => {
     });
   })
   describe('Testando PUT', () => {
-    it('Atualizando usuário - 1', () => {
+    it('Atualizando email do usuário - 1', () => {
       req.put('/api/v1/users/1')
         .send(
           {
@@ -113,7 +113,7 @@ describe('Testes de Usuario', () => {
             })
           })
     });
-    it('Atualizando usuário - 2', () => {
+    it('Atualizando email do usuário - 2', () => {
       req.put('/api/v1/users/2')
         .send(
           {
@@ -122,6 +122,18 @@ describe('Testes de Usuario', () => {
             expect(res.body).toStrictEqual({
               "email": "carlosAtualizado2@gmail.com",
               "senha": "praia"
+            })
+          })
+    });
+    it('Atualizando senha do usuário - 2', () => {
+      req.put('/api/v1/users/2')
+        .send(
+          {
+            "senha": "qlqcoisa123",
+          }).expect(201).end((err, res) => {
+            expect(res.body).toStrictEqual({
+              "email": "carlosAtualizado2@gmail.com",
+              "senha": "qlqcoisa123"
             })
           })
     });
@@ -228,29 +240,7 @@ describe('Testes de Usuario', () => {
             expect(res.body).toStrictEqual({
               "errors": [
                 {
-                  "msg": "email não informado",
-                  "param": "email",
-                  "location": "body"
-                },
-                {
-                  "msg": "O campo email deve conter pelo menos 9 caracteres",
-                  "param": "email",
-                  "location": "body"
-                },
-                {
-                  "msg": "Precisa ser um e-mail válido",
-                  "param": "email",
-                  "location": "body"
-                },
-                {
-                  "msg": "senha não informada",
-                  "param": "senha",
-                  "location": "body"
-                },
-                {
-                  "msg": "O campo senha deve conter pelo menos 5 caracteres",
-                  "param": "senha",
-                  "location": "body"
+                  "errorMessage": "informe os dados para atualizar"
                 }
               ]
             })
